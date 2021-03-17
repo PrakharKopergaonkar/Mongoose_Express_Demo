@@ -43,3 +43,23 @@ app.get("/add-blog", (req, res) => {
             res.send(error.message)
         });
 })
+
+app.get("/all-blogs", (req, res) => {
+    Blog.find()
+        .then((result) => {
+            res.send(result);
+        })
+        .catch((error) => {
+            res.send(error.message)
+        })
+})
+
+app.get("/single-blog", (req, res) => {
+    Blog.findById("605222fe0f2c6f4ca06ce855")
+        .then((result) => {
+            res.send(result);
+        })
+        .catch((error) => {
+            res.send(error.message)
+        })
+})
